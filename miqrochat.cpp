@@ -13,9 +13,21 @@
 #include <QVBoxLayout>
 #include <QSpacerItem>
 
+#include <iostream>
+
+void resizePlainTextEdit(QPlainTextEdit *edit, int rows) {
+    QFontMetrics m(edit->font());
+    int pad = 12;
+    int s = m.lineSpacing();
+    int h = pad + rows * s;
+    edit->setFixedHeight(h);
+    edit->setSizeIncrement(1, s);
+}
+
 int main(int argc, char **argv) {
-    const int padding = 6;
-    const int none = 0;
+    const int smallPadding = 6;
+    QMargins noMargin;
+    QMargins smallMargin(smallPadding, smallPadding, smallPadding, smallPadding);
 
     QApplication app(argc, argv);
     QMainWindow *window = new QMainWindow;
@@ -28,16 +40,17 @@ int main(int argc, char **argv) {
     QVBoxLayout     *layout      = new QVBoxLayout;
     QWidget         *chatArea    = new QWidget;
 
-    layout->addWidget(messageEdit);
     layout->addWidget(chatView);
+    layout->addWidget(messageEdit);
     chatArea->setLayout(layout);
     splitter->addWidget(friendView);
     splitter->addWidget(chatArea);
+    splitter->setHandleWidth(smallPadding);
 
-    layout->setSpacing(padding);
+    layout->setSpacing(smallPadding);
 
-    splitter    ->setContentsMargins(padding, padding, padding, padding);
-    layout      ->setContentsMargins(none, none, none, none);
+    splitter->setContentsMargins(smallMargin);
+    layout  ->setContentsMargins(noMargin);
 
     QToolButton *settingsButton = new QToolButton;
     settingsButton->setArrowType(Qt::DownArrow);
@@ -47,6 +60,8 @@ int main(int argc, char **argv) {
     status->addWidget(settingsButton);
     status->addWidget(statusLabel);
     status->addPermanentWidget(friendLabel);
+
+    resizePlainTextEdit(messageEdit, 1);
 
     //window->setCentralWidget(chatArea);
     window->setCentralWidget(splitter);
