@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "messageedit.h"
+#include "MessageEdit.h"
 
 MessageEdit::MessageEdit(QWidget *parent)
 : QPlainTextEdit(parent) {
