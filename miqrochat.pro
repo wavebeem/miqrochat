@@ -8,4 +8,8 @@ DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
-SOURCES += miqrochat.cpp
+SOURCES += miqrochat.cpp \
+    MessageEdit.cpp
+
+HEADERS += \
+    MessageEdit.h

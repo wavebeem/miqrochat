@@ -15,14 +15,7 @@
 
 #include <iostream>
 
-void resizePlainTextEdit(QPlainTextEdit *edit, int rows) {
-    QFontMetrics m(edit->font());
-    int pad = 12;
-    int s = m.lineSpacing();
-    int h = pad + rows * s;
-    edit->setFixedHeight(h);
-    edit->setSizeIncrement(1, s);
-}
+#include "MessageEdit.h"
 
 int main(int argc, char **argv) {
     const int smallPadding = 6;
@@ -35,7 +28,7 @@ int main(int argc, char **argv) {
     QStatusBar      *status      = window->statusBar();
     QSplitter       *splitter    = new QSplitter;
     QTreeView       *friendView  = new QTreeView;
-    QPlainTextEdit  *messageEdit = new QPlainTextEdit;
+    QPlainTextEdit  *messageEdit = new MessageEdit;
     QPlainTextEdit  *chatView    = new QPlainTextEdit;
     QVBoxLayout     *layout      = new QVBoxLayout;
     QWidget         *chatArea    = new QWidget;
@@ -60,8 +53,6 @@ int main(int argc, char **argv) {
     status->addWidget(settingsButton);
     status->addWidget(statusLabel);
     status->addPermanentWidget(friendLabel);
-
-    resizePlainTextEdit(messageEdit, 1);
 
     //window->setCentralWidget(chatArea);
     window->setCentralWidget(splitter);
