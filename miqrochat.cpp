@@ -16,6 +16,7 @@
 #include <iostream>
 
 #include "MessageEdit.h"
+#include "ChatHeader.h"
 
 int main(int argc, char **argv) {
     const int smallPadding = 6;
@@ -26,6 +27,7 @@ int main(int argc, char **argv) {
     QMainWindow *window = new QMainWindow;
 
     QStatusBar      *status      = window->statusBar();
+    ChatHeader      *chatHeader  = new ChatHeader;
     QSplitter       *splitter    = new QSplitter;
     QTreeView       *friendView  = new QTreeView;
     QPlainTextEdit  *messageEdit = new MessageEdit;
@@ -33,6 +35,7 @@ int main(int argc, char **argv) {
     QVBoxLayout     *layout      = new QVBoxLayout;
     QWidget         *chatArea    = new QWidget;
 
+    layout->addWidget(chatHeader);
     layout->addWidget(chatView);
     layout->addWidget(messageEdit);
     chatArea->setLayout(layout);
@@ -52,7 +55,7 @@ int main(int argc, char **argv) {
     QLabel *friendLabel = new QLabel("Typing");
     status->addWidget(settingsButton);
     status->addWidget(statusLabel);
-    status->addPermanentWidget(friendLabel);
+    //status->addPermanentWidget(friendLabel);
 
     //window->setCentralWidget(chatArea);
     window->setCentralWidget(splitter);

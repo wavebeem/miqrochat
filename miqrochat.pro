@@ -3,13 +3,15 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = 
+TARGET = miqrochat
 DEPENDPATH += .
 INCLUDEPATH += .
 
 # Input
 SOURCES += miqrochat.cpp \
-    MessageEdit.cpp
+    MessageEdit.cpp \
+    ChatHeader.cpp
 
 HEADERS += \
-    MessageEdit.h
+    MessageEdit.h \
+    ChatHeader.h
