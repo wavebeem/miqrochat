@@ -1,5 +1,6 @@
 miqrochat
 Makefile
+moc_*
 *.o
 *.user
 *.autosave
