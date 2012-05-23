@@ -8,7 +8,7 @@
 ChatHeader::ChatHeader(QWidget *parent)
 : QWidget(parent) {
     QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(new QLabel("<b>Bobby Pickles</p>"));
+    layout->addWidget(new QLabel("<b>Bobby Pickles</b>"));
     layout->addWidget(new QLineEdit());
     //layout->addStretch();
     layout->addWidget(new QLabel("Typing..."));
