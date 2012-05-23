@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "MessageEdit.h"
 
 MessageEdit::MessageEdit(QWidget *parent)
