@@ -14,4 +14,7 @@ MainSplitter::MainSplitter(QWidget *parent)
     setHandleWidth(smallPadding);
 
     setContentsMargins(smallMargin);
+
+    setStretchFactor(0, 0);
+    setStretchFactor(1, 1);
 }
