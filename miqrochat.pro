@@ -10,8 +10,18 @@ INCLUDEPATH += .
 # Input
 SOURCES += miqrochat.cpp \
     MessageEdit.cpp \
-    ChatHeader.cpp
+    ChatHeader.cpp \
+    ChatArea.cpp \
+    ChatView.cpp \
+    MainSplitter.cpp \
+    MainWindow.cpp \
+    FriendView.cpp
 
 HEADERS += \
     MessageEdit.h \
-    ChatHeader.h
+    ChatHeader.h \
+    ChatArea.h \
+    ChatView.h \
+    MainSplitter.h \
+    MainWindow.h \
+    FriendView.h

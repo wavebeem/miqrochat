@@ -15,8 +15,13 @@
 
 #include <iostream>
 
+#include "MainWindow.h"
+#include "MainSplitter.h"
 #include "MessageEdit.h"
+#include "FriendView.h"
 #include "ChatHeader.h"
+#include "ChatArea.h"
+#include "ChatView.h"
 
 int main(int argc, char **argv) {
     const int smallPadding = 6;
@@ -24,16 +29,16 @@ int main(int argc, char **argv) {
     QMargins smallMargin(smallPadding, smallPadding, smallPadding, smallPadding);
 
     QApplication app(argc, argv);
-    QMainWindow *window = new QMainWindow;
+    QMainWindow *window = new MainWindow;
 
     QStatusBar      *status      = window->statusBar();
     ChatHeader      *chatHeader  = new ChatHeader;
-    QSplitter       *splitter    = new QSplitter;
-    QTreeView       *friendView  = new QTreeView;
+    QSplitter       *splitter    = new MainSplitter;
+    QTreeView       *friendView  = new FriendView;
     QPlainTextEdit  *messageEdit = new MessageEdit;
-    QPlainTextEdit  *chatView    = new QPlainTextEdit;
+    QPlainTextEdit  *chatView    = new ChatView;
     QVBoxLayout     *layout      = new QVBoxLayout;
-    QWidget         *chatArea    = new QWidget;
+    QWidget         *chatArea    = new ChatArea;
 
     layout->addWidget(chatHeader);
     layout->addWidget(chatView);
