@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_statusBar->addWidget(m_statusLabel);
 
     setCentralWidget(m_mainSplitter);
-    resize(300, 300);
+    resize(500, 500);
 
     setWindowTitle("Title");
 }
