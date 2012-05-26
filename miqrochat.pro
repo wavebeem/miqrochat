@@ -16,6 +16,8 @@ SOURCES += miqrochat.cpp \
     MainSplitter.cpp \
     MainWindow.cpp \
     DotLabel.cpp \
+    BuddiesModel.cpp \
+    BuddyItem.cpp \
     FriendView.cpp
 
 HEADERS += \
@@ -26,4 +28,6 @@ HEADERS += \
     MainSplitter.h \
     MainWindow.h \
     DotLabel.h \
+    BuddiesModel.h \
+    BuddyItem.h \
     FriendView.h
