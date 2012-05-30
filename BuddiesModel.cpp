@@ -92,9 +92,21 @@ QVariant BuddiesModel::headerData(int section, Qt::Orientation orientation, int 
 }
 
 void BuddiesModel::setupModelData(const QStringList &list, BuddyItem *root) {
-    foreach (const QString &s, list) {
+    BuddyItem *parent = root;
+    BuddyItem *item = 0;
+    foreach (const QString &str, list) {
         QList<QVariant> data;
-        data << s;
-        m_root->appendChild(new BuddyItem(data, root));
+        if (str.startsWith("#")) {
+            data << str.mid(1);
+            parent = root;
+            item   = new BuddyItem(data, parent);
+            parent->appendChild(item);
+            parent = item;
+        }
+        else {
+            data << str;
+            item = new BuddyItem(data, parent);
+            parent->appendChild(item);
+        }
     }
 }

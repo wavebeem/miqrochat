@@ -4,6 +4,9 @@
 FriendView::FriendView(QWidget *parent)
 : QTreeView(parent) {
     const char *buddies =
+"#Chatting\n"
+"Bobby\n"
+"Franklin\n"
 "#Online\n"
 "Abal\n"
 "Abir\n"
@@ -30,6 +33,7 @@ FriendView::FriendView(QWidget *parent)
     setHeaderHidden(true);
     setModel(new BuddiesModel(buddies));
     setRootIsDecorated(false);
+    expandAll();
 }
 
 QSize FriendView::sizeHint() const {
