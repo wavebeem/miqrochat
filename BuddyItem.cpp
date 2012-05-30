@@ -1,8 +1,9 @@
 #include "BuddyItem.h"
 
-BuddyItem::BuddyItem(const QList<QVariant> &data, BuddyItem *parent) {
-    m_parent = parent;
-    m_items  = data;
+BuddyItem::BuddyItem(const QList<QVariant> &data, BuddyItem *parent, bool isGroup) {
+    m_isGroup = isGroup;
+    m_parent  = parent;
+    m_items   = data;
 }
 
 BuddyItem::~BuddyItem() {
@@ -38,4 +39,8 @@ QVariant BuddyItem::data(int column) const {
 
 BuddyItem *BuddyItem::parent() {
     return m_parent;
+}
+
+bool BuddyItem::isGroup() const {
+    return m_isGroup;
 }

@@ -1,4 +1,5 @@
  #include "BuddiesModel.h"
+ #include <QFont>
 
  BuddiesModel::BuddiesModel(const QString &data, QObject *parent)
  : QAbstractItemModel(parent) {
@@ -66,13 +67,19 @@ int BuddiesModel::columnCount(const QModelIndex &parent) const {
 }
 
 QVariant BuddiesModel::data(const QModelIndex &index, int role) const {
+    BuddyItem *item = static_cast<BuddyItem *>(index.internalPointer());
+
+    if (role == Qt::FontRole && item && item->isGroup()) {
+        QFont font;
+        font.setBold(true);
+        return QVariant(font);
+    }
+
     if (! index.isValid())
         return QVariant();
 
     if (role != Qt::DisplayRole)
         return QVariant();
-
-    BuddyItem *item = static_cast<BuddyItem *>(index.internalPointer());
 
     return item->data(index.column());
 }
@@ -99,7 +106,7 @@ void BuddiesModel::setupModelData(const QStringList &list, BuddyItem *root) {
         if (str.startsWith("#")) {
             data << str.mid(1);
             parent = root;
-            item   = new BuddyItem(data, parent);
+            item   = new BuddyItem(data, parent, true);
             parent->appendChild(item);
             parent = item;
         }
