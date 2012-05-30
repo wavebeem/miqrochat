@@ -1,0 +1,28 @@
+.message {
+    padding: 2px;
+}
+
+.self {
+    background-color: #ddf;
+}
+
+.them {
+    background-color: #cce;
+}
+
+html {
+    border: 1px solid gray;
+
+    padding: 0px;
+    margin:  0px;
+
+    font-family: sans-serif;
+    font-size: 10pt;
+
+    background-color: #ddf;
+}
+
+body {
+    padding: 0px;
+    margin:  0px;
+}

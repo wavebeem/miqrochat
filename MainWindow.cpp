@@ -1,4 +1,5 @@
 #include "MainWindow.h"
+#include "Util.h"
 
 MainWindow::MainWindow(QWidget *parent)
 : QMainWindow(parent) {
@@ -13,12 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_statusBar->addWidget(m_settingsButton);
     m_statusBar->addWidget(m_statusLabel);
 
-    QFile file("resources/widgets.qss");
-    if (file.open(QIODevice::ReadOnly)) {
-        QByteArray bytes = file.readAll();
-        QString text(bytes);
-        setStyleSheet(text);
-    }
+    setStyleSheet(Util::readFile("resources/widgets.qss"));
 
     setCentralWidget(m_mainSplitter);
     resize(500, 500);

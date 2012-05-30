@@ -1,9 +1,18 @@
-/* vim: set syn=css: */
+/* vim: set ft=css: */
 
 #theFriendStatus {
-    background-color: #88C5A7;
-    border: 1px solid #73A78D;
+    background-color:    #88C5A7;
+    border-top-color:    #7EB69A;
+    border-left-color:   #7EB69A;
+    border-bottom-color: #73A78D;
+    border-right-color:  #73A78D;
+    border-style: solid;
+    border-width: 1px;
     padding: 2px;
     font-weight: bold;
-    border-radius: 2px;
+    border-radius: 0px;
+}
+
+#theChatView {
+    border: 4px solid black;
 }
