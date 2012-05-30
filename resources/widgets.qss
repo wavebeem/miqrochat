@@ -1,0 +1,9 @@
+/* vim: set syn=css: */
+
+#theFriendStatus {
+    background-color: #55bb88;
+    border: 1px solid #339966;
+    padding: 2px;
+    font-weight: bold;
+    border-radius: 2px;
+}

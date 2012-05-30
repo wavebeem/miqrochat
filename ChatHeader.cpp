@@ -11,10 +11,12 @@ ChatHeader::ChatHeader(QWidget *parent)
     QHBoxLayout *layout = new QHBoxLayout;
     layout->addWidget(new QLabel("<b>Bobby Pickles</b>"));
     layout->setStretch(0, 0);
-    layout->addWidget(new DotLabel("foo bar baz quux foo bar baz quux foo bar baz quux foo bar baz quux foo bar baz quux foo bar baz quux"));
+    layout->addWidget(new DotLabel("foo bar baz quux foo bar baz quux foo bar baz quux"));
     layout->setStretch(1, 1);
     //layout->addStretch();
-    layout->addWidget(new QLabel("Typing..."));
+    QLabel *friendStatus = new QLabel("Typing");
+    friendStatus->setObjectName("theFriendStatus");
+    layout->addWidget(friendStatus);
     layout->setStretch(2, 0);
     setLayout(layout);
 }
