@@ -33,6 +33,7 @@ FriendView::FriendView(QWidget *parent)
     setHeaderHidden(true);
     setModel(new BuddiesModel(buddies));
     setRootIsDecorated(false);
+    setIndentation(10);
     expandAll();
 }
 
