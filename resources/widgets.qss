@@ -2,10 +2,10 @@
 
 #theFriendStatus {
     background-color:    #88C5A7;
-    border-top-color:    #7EB69A;
-    border-left-color:   #7EB69A;
-    border-bottom-color: #73A78D;
-    border-right-color:  #73A78D;
+    border-top-color:    #73A78D;
+    border-left-color:   #73A78D;
+    border-bottom-color: #65937C;
+    border-right-color:  #65937C;
     border-style: solid;
     border-width: 1px;
     padding: 2px;

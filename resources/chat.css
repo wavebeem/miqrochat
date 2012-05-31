@@ -1,6 +1,6 @@
+/* Message styling*/
 .message {
     padding: 4px;
-    color: #ddd;
 
     font-weight: bold;
     font-family: sans-serif;
@@ -13,25 +13,75 @@
     border-style: solid;
 
     border-top-color:    rgba(255, 255, 255, 0.10);
-    border-left-color:   rgba(255, 255, 255, 0.10);
-    border-bottom-color: rgba(  0,   0,   0, 0.10);
-    border-right-color:  rgba(  0,   0,   0, 0.10);
+    border-left-color:   rgba(  0,   0,   0, 0.15);
+    border-bottom-color: rgba(  0,   0,   0, 0.15);
+    border-right-color:  rgba(  0,   0,   0, 0.15);
 }
 
 .self {
-    background-color: #222;
+    background-color: #303030;
+    color: #666;
 }
 
 .them {
-    background-color: #333;
+    background-color: #404040;
+    color: #ddd;
 }
 
+/* Remove padding */
 html {
     padding: 0px;
     margin:  0px;
+
+    background-color: #444;
 }
 
 body {
     padding: 0px;
     margin:  0px;
+}
+
+/* Custom scrollbars */
+*::-webkit-scrollbar {
+    width:  6px;
+    height: 6px;
+
+    border-width: 0px;
+}
+
+*::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-track {
+    margin:       0px;
+    padding:      0px;
+    border-width: 0px;
+}
+
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-width: 0px;
+
+    border-style: solid;
+
+    background-color: #fcaf3e;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+}
+
+*::-webkit-scrollbar-track:horizontal,
+*::-webkit-scrollbar-track:vertical {
+    background: #000;
+}
+
+*::-webkit-scrollbar-thumb:vertical {
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+*::-webkit-scrollbar-track:vertical {
+    border-left: 1px solid #444;
+    background: #333;
 }
