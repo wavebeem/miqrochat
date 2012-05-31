@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 
-#include "ChatView.h"
+#include "ChatViewFrame.h"
 #include "ChatHeader.h"
 #include "MessageEdit.h"
 
@@ -14,10 +14,10 @@ public:
     explicit ChatArea(QWidget *parent=0);
 
 private:
-    ChatView    *m_chatView;
-    MessageEdit *m_messageEdit;
-    QVBoxLayout *m_layout;
-    ChatHeader  *m_chatHeader;
+    ChatViewFrame *m_chatViewFrame;
+    MessageEdit   *m_messageEdit;
+    QVBoxLayout   *m_layout;
+    ChatHeader    *m_chatHeader;
 };
 
 #endif

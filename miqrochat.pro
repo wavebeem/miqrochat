@@ -14,6 +14,7 @@ SOURCES += miqrochat.cpp \
     ChatHeader.cpp \
     ChatArea.cpp \
     ChatView.cpp \
+    ChatViewFrame.cpp \
     MainSplitter.cpp \
     MainWindow.cpp \
     DotLabel.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     ChatHeader.h \
     ChatArea.h \
     ChatView.h \
+    ChatViewFrame.h \
     MainSplitter.h \
     MainWindow.h \
     DotLabel.h \

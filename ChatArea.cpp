@@ -5,13 +5,13 @@ ChatArea::ChatArea(QWidget *parent)
     const int smallPadding = 6;
     QMargins noMargin;
 
-    m_messageEdit = new MessageEdit;
-    m_chatHeader  = new ChatHeader;
-    m_chatView    = new ChatView;
-    m_layout      = new QVBoxLayout;
+    m_messageEdit   = new MessageEdit;
+    m_chatHeader    = new ChatHeader;
+    m_chatViewFrame = new ChatViewFrame;
+    m_layout        = new QVBoxLayout;
 
     m_layout->addWidget(m_chatHeader);
-    m_layout->addWidget(m_chatView);
+    m_layout->addWidget(m_chatViewFrame);
     m_layout->addWidget(m_messageEdit);
 
 
