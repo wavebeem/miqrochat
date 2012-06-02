@@ -15,7 +15,7 @@ FriendView::FriendView(QWidget *parent)
     setRootIsDecorated(false);
     setIndentation(10);
     expandAll();
-
+    setContextMenuPolicy(Qt::CustomContextMenu);
     connect(this, SIGNAL(customContextMenuRequested(const QPoint &)),
             this, SLOT(showContextMenu(const QPoint &)));
 }
