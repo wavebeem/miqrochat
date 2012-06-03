@@ -14,6 +14,10 @@ ChatArea::ChatArea(QWidget *parent)
     m_layout->addWidget(m_chatViewFrame);
     m_layout->addWidget(m_messageEdit);
 
+    m_layout->setStretch(0, 0);
+    m_layout->setStretch(1, 1);
+    m_layout->setStretch(2, 0);
+
 
     m_layout->setSpacing(smallPadding);
     m_layout->setContentsMargins(noMargin);
