@@ -18,6 +18,10 @@ BuddyItem *BuddyItem::child(int row) {
     return m_children.value(row);
 }
 
+void BuddyItem::callMeIshmael() {
+    m_items[0] = QString("ISHMAEL");
+}
+
 int BuddyItem::childCount() const {
     return m_children.count();
 }

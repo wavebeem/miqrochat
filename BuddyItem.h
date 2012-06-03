@@ -18,6 +18,7 @@ public:
     int row() const;
     BuddyItem *parent();
     bool isGroup() const;
+    void callMeIshmael();
 
 private:
     QList<BuddyItem *> m_children;

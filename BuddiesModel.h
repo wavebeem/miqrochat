@@ -26,9 +26,13 @@ public:
     int columnCount(const QModelIndex &parent=QModelIndex()) const;
 
 private:
-     void setupModelData(const QStringList &lines, BuddyItem *parent);
+    void setupModelData(const QStringList &lines, BuddyItem *parent);
+    BuddyItem *buddyAt(const QModelIndex &) const;
 
-     BuddyItem *m_root;
+    BuddyItem *m_root;
+
+private slots:
+    void doSillyStuff();
 };
 
 #endif

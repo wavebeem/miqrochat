@@ -24,11 +24,17 @@ void FriendView::showContextMenu(const QPoint &p) {
     qDebug() << "Clicked at:" << p;
     QModelIndex index = indexAt(p);
     if (index.isValid()) {
-        QList<QAction *> actions;
-        actions << new QAction("Chat", this);
-        actions << new QAction("Rename", this);
-        actions << new QAction("Remove", this);
-        QAction *action = QMenu::exec(actions, mapToGlobal(p), actions[0], this);
+        QMenu actions;
+        QAction *username = actions.addAction("username@host.com");
+        actions.addSeparator();
+        actions.addAction("Chat");
+        actions.addAction("Rename");
+        actions.addAction("Remove");
+
+        username->setDisabled(true);
+
+        QAction *action = actions.exec(mapToGlobal(p));
+
         if (action) {
             qDebug() << "Selected action:" << action->text();
         }

@@ -1,20 +1,36 @@
  #include "BuddiesModel.h"
  #include <QFont>
+ #include <QTimer>
+ #include <QDebug>
 
- BuddiesModel::BuddiesModel(const QString &data, QObject *parent)
- : QAbstractItemModel(parent) {
-     QList<QVariant> rootData;
-     rootData << "Buddies";
-     m_root = new BuddyItem(rootData);
-     setupModelData(data.split("\n"), m_root);
- }
+BuddiesModel::BuddiesModel(const QString &data, QObject *parent)
+: QAbstractItemModel(parent) {
+    QList<QVariant> rootData;
+    rootData << "Buddies";
+    m_root = new BuddyItem(rootData);
+    setupModelData(data.split("\n"), m_root);
+    QTimer::singleShot(1000, this, SLOT(doSillyStuff()));
+}
+
+void BuddiesModel::doSillyStuff() {
+    m_root->child(0)->child(0)->callMeIshmael();
+    m_root->child(1)->child(3)->callMeIshmael();
+    emit dataChanged(index(0, 0), index(0, 0));
+}
 
 BuddiesModel::~BuddiesModel() {
     delete m_root;
 }
 
+BuddyItem *BuddiesModel::buddyAt(const QModelIndex &index) const {
+    if (! index.isValid())
+        return 0;
+
+    return static_cast<BuddyItem *>(index.internalPointer());
+}
+
 QModelIndex BuddiesModel::index(int row, int column, const QModelIndex &parent) const {
-    if (!hasIndex(row, column, parent))
+    if (! hasIndex(row, column, parent))
         return QModelIndex();
 
     BuddyItem *parentItem;
@@ -22,7 +38,7 @@ QModelIndex BuddiesModel::index(int row, int column, const QModelIndex &parent) 
     if (! parent.isValid())
         parentItem = m_root;
     else
-        parentItem = static_cast<BuddyItem *>(parent.internalPointer());
+        parentItem = buddyAt(parent);
 
     BuddyItem *childItem = parentItem->child(row);
 
@@ -32,12 +48,11 @@ QModelIndex BuddiesModel::index(int row, int column, const QModelIndex &parent) 
         return QModelIndex();
 }
 
-QModelIndex BuddiesModel::parent(const QModelIndex &index) const
-{
+QModelIndex BuddiesModel::parent(const QModelIndex &index) const {
     if (! index.isValid())
         return QModelIndex();
 
-    BuddyItem *childItem = static_cast<BuddyItem*>(index.internalPointer());
+    BuddyItem *childItem  = buddyAt(index);
     BuddyItem *parentItem = childItem->parent();
 
     if (parentItem == m_root)
@@ -54,20 +69,20 @@ int BuddiesModel::rowCount(const QModelIndex &parent) const {
     if (! parent.isValid())
         parentItem = m_root;
     else
-        parentItem = static_cast<BuddyItem *>(parent.internalPointer());
+        parentItem = buddyAt(parent);
 
     return parentItem->childCount();
 }
 
 int BuddiesModel::columnCount(const QModelIndex &parent) const {
     if (parent.isValid())
-        return static_cast<BuddyItem *>(parent.internalPointer())->columnCount();
+        return buddyAt(parent)->columnCount();
     else
         return m_root->columnCount();
 }
 
 QVariant BuddiesModel::data(const QModelIndex &index, int role) const {
-    BuddyItem *item = static_cast<BuddyItem *>(index.internalPointer());
+    BuddyItem *item = buddyAt(index);
 
     if (role == Qt::FontRole && item && item->isGroup()) {
         QFont font;
