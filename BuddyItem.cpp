@@ -1,9 +1,15 @@
 #include "BuddyItem.h"
 
-BuddyItem::BuddyItem(const QList<QVariant> &data, BuddyItem *parent, bool isGroup) {
-    m_isGroup = isGroup;
-    m_parent  = parent;
-    m_items   = data;
+BuddyItem::BuddyItem(Buddy *buddy, BuddyItem *parent):
+m_buddy(buddy),
+m_group(0),
+m_parent(parent) {
+}
+
+BuddyItem::BuddyItem(Group *group, BuddyItem *parent):
+m_buddy(0),
+m_group(group),
+m_parent(parent) {
 }
 
 BuddyItem::~BuddyItem() {
@@ -19,7 +25,8 @@ BuddyItem *BuddyItem::child(int row) {
 }
 
 void BuddyItem::callMeIshmael() {
-    m_items[0] = QString("ISHMAEL");
+    if (m_buddy)
+        m_buddy->rename("ISHMAEL");
 }
 
 int BuddyItem::childCount() const {
@@ -34,17 +41,23 @@ int BuddyItem::row() const {
 }
 
 int BuddyItem::columnCount() const {
-    return m_items.count();
+    return 1;
 }
 
-QVariant BuddyItem::data(int column) const {
-    return m_items.value(column);
+QVariant BuddyItem::data(int /*column*/) const {
+    if (m_buddy) return m_buddy->nick();
+    if (m_group) return m_group->name();
+    return QVariant();
 }
 
-BuddyItem *BuddyItem::parent() {
+BuddyItem *BuddyItem::parent() const {
     return m_parent;
 }
 
-bool BuddyItem::isGroup() const {
-    return m_isGroup;
+Buddy *BuddyItem::buddy() const {
+    return m_buddy;
+}
+
+Group *BuddyItem::group() const {
+    return m_group;
 }

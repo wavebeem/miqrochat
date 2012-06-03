@@ -21,6 +21,8 @@ SOURCES += miqrochat.cpp \
     BuddiesModel.cpp \
     BuddyItem.cpp \
     Util.cpp \
+    Buddy.cpp \
+    Group.cpp \
     FriendView.cpp
 
 HEADERS += \
@@ -35,4 +37,6 @@ HEADERS += \
     BuddiesModel.h \
     BuddyItem.h \
     Util.h \
+    Buddy.h \
+    Group.h \
     FriendView.h

@@ -1,26 +1,26 @@
 #Chatting
-Bobby
-Franklin
+Bobby bob@foo.com
+Franklin frank@foo.com
 #Online
-Abal
-Abir
-Badra
-Banan
-Cantara
-Daliyah
-Fatima
-Hasibah
-Hayed
-Hijrah
+Abal aba@foo.com
+Abir abi@foo.com
+Badra bad@foo.com
+Banan ban@foo.com
+Cantara can@foo.com
+Daliyah dal@foo.com
+Fatima fat@foo.com
+Hasibah has@foo.com
+Hayed hay@foo.com
+Hijrah hij@foo.com
 #Away
-Hubab
-Huma
-Husn
-Inaya
-Insaf
-Jada
-Jana
-Kamilah
-Kulus
-Lamya
-Lunah
+Hubab hub@foo.com
+Huma hum@foo.com
+Husn hus@foo.com
+Inaya ina@foo.com
+Insaf ins@foo.com
+Jada jad@foo.com
+Jana jan@foo.com
+Kamilah kam@foo.com
+Kulus kul@foo.com
+Lamya lam@foo.com
+Lunah lun@foo.com

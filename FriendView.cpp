@@ -25,7 +25,11 @@ void FriendView::showContextMenu(const QPoint &p) {
     QModelIndex index = indexAt(p);
     if (index.isValid()) {
         QMenu actions;
-        QAction *username = actions.addAction("username@host.com");
+        BuddyItem *item = (BuddyItem *)index.internalPointer();
+        if (item->group())
+            return;
+
+        QAction *username = actions.addAction(item->buddy()->id());
         actions.addSeparator();
         actions.addAction("Chat");
         actions.addAction("Rename");

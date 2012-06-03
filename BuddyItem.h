@@ -1,12 +1,16 @@
 #ifndef BUDDYITEM_H
 #define BUDDYITEM_H
 
+#include "Buddy.h"
+#include "Group.h"
+
 #include <QList>
 #include <QVariant>
 
 class BuddyItem {
 public:
-    explicit BuddyItem(const QList<QVariant> &data, BuddyItem *parent=0, bool isGroup=false);
+    explicit BuddyItem(Buddy *, BuddyItem *parent=0);
+    explicit BuddyItem(Group *, BuddyItem *parent=0);
     ~BuddyItem();
 
     void appendChild(BuddyItem *child);
@@ -16,15 +20,19 @@ public:
     int columnCount() const;
     QVariant data(int column) const;
     int row() const;
-    BuddyItem *parent();
-    bool isGroup() const;
     void callMeIshmael();
+
+    BuddyItem *parent() const;
+
+    Group *group() const;
+    Buddy *buddy() const;
 
 private:
     QList<BuddyItem *> m_children;
-    QList<QVariant>    m_items;
     BuddyItem *m_parent;
-    bool m_isGroup;
+    Buddy *m_buddy;
+    Group *m_group;
+    bool m_is_Group;
 };
 
 #endif
