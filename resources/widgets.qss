@@ -6,6 +6,7 @@
     border-left-color:   #73A78D;
     border-bottom-color: #65937C;
     border-right-color:  #65937C;
+    color: #222222;
     border-style: solid;
     border-width: 1px;
     padding: 2px;
