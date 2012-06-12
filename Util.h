@@ -12,6 +12,8 @@ namespace Util {
         if (x > b) return b;
         /* else */ return x;
     }
+
+    QString randomString(int length);
 }
 
 #endif

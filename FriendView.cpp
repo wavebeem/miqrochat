@@ -4,8 +4,9 @@
 
 #include <QList>
 #include <QMenu>
-#include <QAction>
 #include <QDebug>
+#include <QAction>
+#include <QModelIndex>
 
 FriendView::FriendView(QWidget *parent)
 : QTreeView(parent) {
@@ -47,4 +48,14 @@ void FriendView::showContextMenu(const QPoint &p) {
 
 QSize FriendView::sizeHint() const {
     return QSize(150, 0);
+}
+
+void FriendView::currentChanged(const QModelIndex &cur, const QModelIndex & /*prev*/) {
+    if (cur.isValid()) {
+        BuddyItem *item = (BuddyItem *)cur.internalPointer();
+        if (item->buddy()) {
+            Buddy *bud = item->buddy();
+            qDebug() << "Selected the following buddy:" << bud->nick() << bud->id();
+        }
+    }
 }

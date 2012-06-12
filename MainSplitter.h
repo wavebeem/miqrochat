@@ -4,7 +4,7 @@
 #include <QSplitter>
 
 #include "FriendView.h"
-#include "ChatArea.h"
+#include "ChatAreaContainer.h"
 
 class MainSplitter: public QSplitter {
 Q_OBJECT
@@ -12,8 +12,8 @@ public:
     explicit MainSplitter(QWidget *parent=0);
 
 private:
-    FriendView *m_friendView;
-    ChatArea   *m_chatArea;
+    FriendView          *m_friendView;
+    ChatAreaContainer   *m_chatAreaC;
 };
 
 #endif

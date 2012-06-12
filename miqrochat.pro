@@ -13,6 +13,7 @@ SOURCES += miqrochat.cpp \
     MessageEdit.cpp \
     ChatHeader.cpp \
     ChatArea.cpp \
+    ChatAreaContainer.cpp \
     ChatView.cpp \
     ChatViewFrame.cpp \
     MainSplitter.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     MessageEdit.h \
     ChatHeader.h \
     ChatArea.h \
+    ChatAreaContainer.h \
     ChatView.h \
     ChatViewFrame.h \
     MainSplitter.h \

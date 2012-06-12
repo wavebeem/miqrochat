@@ -7,10 +7,10 @@ MainSplitter::MainSplitter(QWidget *parent)
     QMargins smallMargin(6, 6, 6, 6);
 
     m_friendView = new FriendView;
-    m_chatArea   = new ChatArea;
+    m_chatAreaC  = new ChatAreaContainer;
 
     addWidget(m_friendView);
-    addWidget(m_chatArea);
+    addWidget(m_chatAreaC);
     setHandleWidth(smallPadding);
 
     setContentsMargins(smallMargin);

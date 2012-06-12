@@ -13,6 +13,9 @@ public:
 
 public slots:
     void showContextMenu(const QPoint &);
+
+protected slots:
+    virtual void currentChanged(const QModelIndex &current, const QModelIndex &previous);
 };
 
 #endif
